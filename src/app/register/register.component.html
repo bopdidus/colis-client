@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div id="up"></div>
+  <div id="content">
+    <mat-card>
+      <mat-card-title>
+        <h2 class="text-center">Welcome To Suna</h2>
+        <mat-divider></mat-divider>
+      </mat-card-title>
+      <mat-card-content>
+          <form  [formGroup]="registerGroup" (ngSubmit)="onSubmit(registerGroup.value)">
+              <div class="row">
+                  <div class="col">
+                      <p>
+                          <mat-form-field appearance="legacy">
+                            <mat-label>Company's name</mat-label>
+                            <input matInput placeholder="username" id="companyName" formControlName="companyName">
+                            <mat-icon matSuffix style="color: #0047e9;">location_city</mat-icon>
+                            <small *ngIf="registerGroup.controls.companyName.errors && (registerGroup.controls.companyName.dirty || registerGroup.controls.companyName.touched)">Name is required and the 5 length minimum</small>
+                          </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field appearance="legacy">
+                              <mat-label>Company's Phone number</mat-label>
+                              <input matInput placeholder="phone number" type="tel" formControlName="companyPhone">
+                              <mat-icon matSuffix style="color: #0047e9;">call</mat-icon>
+                              <small *ngIf="registerGroup.controls.companyPhone.errors && (registerGroup.controls.companyPhone.dirty || registerGroup.controls.companyPhone.touched)">The name must contain only numbers</small>
+                            </mat-form-field>
+                          </p>
+                        <p>
+                            <mat-form-field appearance="legacy">
+                              <mat-label>Company's email</mat-label>
+                              <input matInput placeholder="email" type="email" formControlName="companyEmail">
+                              <mat-icon matSuffix style="color: #0047e9;">mail</mat-icon>
+                              <small *ngIf="registerGroup.controls.companyEmail.errors && registerGroup.controls.companyEmail.touched"> Email is incorrect</small>
+                            </mat-form-field>
+                        </p>
+                        <p [formGroup]="passwordForm">
+                          <mat-form-field appearance="fill">
+                              <mat-label>Enter your password</mat-label>
+                              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                              <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                              <small *ngIf="passwordForm.controls.password.errors && (passwordForm.controls.password.dirty || passwordForm.controls.password.touched)">The password should be minimum 8 characters</small>
+                          </mat-form-field>
+                        </p>
+                  </div>
+                  <div class="col">
+                      <p>
+                          <mat-form-field appearance="legacy">
+                            <mat-label>Manager's fullname</mat-label>
+                            <input matInput placeholder="username" formControlName="managerFullName">
+                            <mat-icon matSuffix style="color: #0047e9;">person</mat-icon>
+                            <small *ngIf="registerGroup.controls.managerFullName.invalid && (registerGroup.controls.managerFullName.dirty || registerGroup.controls.managerFullName.touched)">Name is required and the 5 length minimum</small>
+                          </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field appearance="legacy">
+                              <mat-label>Manager's phone</mat-label>
+                              <input matInput placeholder="username" formControlName="managerPhone">
+                              <mat-icon matSuffix style="color: #0047e9;">call</mat-icon>
+                              <small *ngIf="registerGroup.controls.managerPhone.dirty || registerGroup.controls.managerPhone.touched">The phone number is required</small>
+                              <small *ngIf="registerGroup.controls.managerPhone.errors && registerGroup.controls.managerPhone.touched">The phone number is minimum 6 characters</small>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field appearance="legacy">
+                              <mat-label>Manager's email</mat-label>
+                              <input matInput placeholder="email" formControlName="managerEmail">
+                              <mat-icon matSuffix style="color: #0047e9;">mail</mat-icon>
+                              <small *ngIf="registerGroup.controls.managerEmail.errors && registerGroup.controls.managerEmail.touched"> Email is incorrect</small>
+                            </mat-form-field>
+                        </p>
+                        <p [formGroup]="passwordForm">
+                          <mat-form-field appearance="fill">
+                              <mat-label>Confirm password</mat-label>
+                              <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordConfirm">
+                              <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                              <small *ngIf="passwordForm.controls.passwordConfirm.errors  && (passwordForm.controls.passwordConfirm.dirty || passwordForm.controls.passwordConfirm.touched)">The password should be minimum 8 characters</small>
+                              <small *ngIf="!registerGroup.valid &&  passwordForm.controls.passwordConfirm.touched">The confirm password does not match the password</small>
+                          </mat-form-field>
+                        </p>
+                  </div>
+                </div>
+
+                <p>
+                  <button type="submit" class="form-control" mat-raised-button [disabled]="!registerGroup.valid">Sign Up</button>
+                </p>
+          </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div id="down"></div>
+</div>

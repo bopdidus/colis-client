@@ -1,0 +1,38 @@
+#content{
+  position: absolute;
+  top:60vh;
+  width: 25%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 500px;
+}
+h2{
+  color: #0047e9;
+}
+button{
+  height: 50px;
+  background-color: #0047e9;
+  color: white;
+}
+#up{
+  background-color: #0047e9;
+
+  height: 50vh;
+  margin: 0;
+}
+#down{
+  background-color: #f6f6f4;
+  height: 50vh;
+  margin: 0;
+}
+.container-fluid{
+  padding: 0;
+}
+mat-form-field, input{
+  line-height: 15px;
+  width: 100%;
+}
+mat-form-field{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
